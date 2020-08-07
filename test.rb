@@ -3,7 +3,8 @@ def assert(value)
 end
 
 def assert_error
-  -> { assert(false) }.call
+  callable = -> { assert(false) }
+  callable.call
 rescue
 end
 
