@@ -3,7 +3,7 @@ def assert(value)
 end
 
 def assert_error
-  assert(false)
+  -> { assert(false) }.call
 rescue
 end
 
