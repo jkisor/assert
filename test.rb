@@ -10,6 +10,7 @@ else
 end
 
 def assert_equal(actual, expected)
+  raise if actual != expected
 end
 
 # Successful tests succeed
@@ -23,5 +24,8 @@ assert_error { assert_error { 1+1 } }
 
 # Comparing equivalent values succeeds
 assert_equal(0, 0)
+
+# Comparing different values fails
+assert_error { assert_equal(0, 999) }
 
 puts "Success"
