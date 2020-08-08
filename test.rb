@@ -2,8 +2,7 @@ def assert(value)
   raise unless value
 end
 
-def assert_error
-  callable = -> { assert(false) }
+def assert_error(callable)
   callable.call
 rescue
 end
@@ -12,6 +11,6 @@ end
 assert(true)
 
 # Failing tests fail
-assert_error
+assert_error(-> { assert(false) })
 
 puts "Success"
